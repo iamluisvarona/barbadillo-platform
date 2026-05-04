@@ -1,0 +1,95 @@
+.bb-heading,
+.bb-text,
+.bb-caption {
+  margin: 0;
+  font-family: var(--bb-font-family-base);
+}
+
+.bb-heading {
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.bb-heading--1 {
+  font-size: 36px;
+}
+
+.bb-heading--2 {
+  font-size: 28px;
+}
+
+.bb-heading--3 {
+  font-size: 22px;
+}
+
+.bb-heading--4 {
+  font-size: 18px;
+}
+
+.bb-text {
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.bb-text--sm {
+  font-size: 13px;
+}
+
+.bb-text--md {
+  font-size: 15px;
+}
+
+.bb-text--lg {
+  font-size: 17px;
+}
+
+.bb-caption {
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bb-text--default {
+  color: var(--bb-color-text);
+}
+
+.bb-text--muted {
+  color: var(--bb-color-text-muted);
+}
+
+.bb-text--soft {
+  color: var(--bb-color-text-soft);
+}
+
+.bb-text--primary {
+  color: var(--bb-color-primary);
+}
+
+.bb-text--success {
+  color: var(--bb-color-success);
+}
+
+.bb-text--danger {
+  color: var(--bb-color-danger);
+}
+
+.bb-text--warning {
+  color: var(--bb-color-warning);
+}
+
+@media (max-width: 480px) {
+  .bb-heading--1 {
+    font-size: 30px;
+  }
+
+  .bb-heading--2 {
+    font-size: 24px;
+  }
+
+  .bb-heading--3 {
+    font-size: 20px;
+  }
+}
