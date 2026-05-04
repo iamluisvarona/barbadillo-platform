@@ -1,0 +1,27 @@
+.bb-empty-state {
+  padding: var(--bb-space-6);
+  text-align: center;
+}
+
+.bb-empty-state__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--bb-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bb-color-primary);
+  background: var(--bb-color-primary-soft);
+  box-shadow: var(--bb-shadow-glow-primary);
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.bb-empty-state__title {
+  text-align: center;
+}
+
+.bb-empty-state__description {
+  max-width: 420px;
+  text-align: center;
+}

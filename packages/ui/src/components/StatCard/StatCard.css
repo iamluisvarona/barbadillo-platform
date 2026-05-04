@@ -1,0 +1,33 @@
+.bb-stat-card {
+  min-height: 132px;
+}
+
+.bb-stat-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--bb-space-3);
+}
+
+.bb-stat-card__value {
+  font-size: 36px;
+  letter-spacing: -0.05em;
+}
+
+.bb-stat-card__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bb-space-2);
+}
+
+.bb-stat-card__trend {
+  color: var(--bb-color-success);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+@media (max-width: 640px) {
+  .bb-stat-card__value {
+    font-size: 32px;
+  }
+}
