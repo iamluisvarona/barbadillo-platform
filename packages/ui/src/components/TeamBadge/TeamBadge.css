@@ -1,0 +1,42 @@
+.bb-team-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bb-space-3);
+  min-width: 0;
+}
+
+.bb-team-badge__content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.bb-team-badge__name {
+  color: var(--bb-color-text);
+  font-weight: 800;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bb-team-badge__category {
+  margin-top: var(--bb-space-1);
+  color: var(--bb-color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bb-team-badge--sm {
+  gap: var(--bb-space-2);
+}
+
+.bb-team-badge--sm .bb-team-badge__name {
+  font-size: 0.85rem;
+}
+
+.bb-team-badge--md .bb-team-badge__name {
+  font-size: 0.95rem;
+}

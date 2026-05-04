@@ -1,0 +1,35 @@
+.bb-trip-card {
+  width: 100%;
+}
+
+.bb-trip-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--bb-space-3);
+}
+
+.bb-trip-card__route {
+  margin-top: var(--bb-space-1);
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--bb-color-text);
+}
+
+.bb-trip-card__info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--bb-space-3);
+}
+
+.bb-trip-card__info > div {
+  padding: var(--bb-space-3);
+  background: var(--bb-color-surface-strong);
+  border: 1px solid var(--bb-color-border);
+  border-radius: var(--bb-radius-md);
+}
+
+.bb-trip-card__footer {
+  padding-top: var(--bb-space-3);
+  border-top: 1px solid var(--bb-color-border);
+}

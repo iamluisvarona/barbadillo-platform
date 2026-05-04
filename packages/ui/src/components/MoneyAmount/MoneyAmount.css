@@ -1,0 +1,25 @@
+.bb-money-amount {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+/* tones */
+.bb-money-amount--default {
+  color: var(--bb-color-text);
+}
+
+.bb-money-amount--success {
+  color: var(--bb-color-success);
+}
+
+.bb-money-amount--danger {
+  color: var(--bb-color-danger);
+}
+
+.bb-money-amount--warning {
+  color: var(--bb-color-warning);
+}
+
+.bb-money-amount--muted {
+  color: var(--bb-color-text-muted);
+}

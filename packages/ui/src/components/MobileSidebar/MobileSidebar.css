@@ -1,0 +1,22 @@
+.bb-mobile-sidebar {
+  width: 100%;
+  min-height: auto;
+  height: auto;
+  border-right: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.bb-mobile-sidebar .bb-sidebar__brand {
+  padding-top: 0;
+}
+
+.bb-mobile-sidebar .bb-sidebar__nav {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.bb-mobile-sidebar .bb-sidebar__footer {
+  padding-left: 0;
+  padding-right: 0;
+}

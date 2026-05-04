@@ -1,0 +1,47 @@
+.bb-payment-summary-card {
+  width: 100%;
+}
+
+.bb-payment-summary-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--bb-space-3);
+}
+
+.bb-payment-summary-card__title {
+  margin-top: var(--bb-space-1);
+  color: var(--bb-color-text);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.bb-payment-summary-card__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bb-space-3);
+}
+
+.bb-payment-summary-card__item {
+  padding: var(--bb-space-3);
+  background: var(--bb-color-surface-strong);
+  border: 1px solid var(--bb-color-border);
+  border-radius: var(--bb-radius-md);
+}
+
+.bb-payment-summary-card__item .bb-money-amount {
+  display: block;
+  margin-top: var(--bb-space-1);
+  font-size: 1.1rem;
+}
+
+.bb-payment-summary-card__footer {
+  padding-top: var(--bb-space-3);
+  border-top: 1px solid var(--bb-color-border);
+}
+
+@media (min-width: 640px) {
+  .bb-payment-summary-card__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

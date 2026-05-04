@@ -1,0 +1,70 @@
+.bb-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--bb-radius-md);
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    transform 0.12s,
+    box-shadow 0.18s;
+}
+
+/* Sizes */
+.bb-icon-button--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.bb-icon-button--md {
+  width: 40px;
+  height: 40px;
+}
+
+.bb-icon-button--lg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Variants */
+.bb-icon-button--ghost {
+  background: transparent;
+  color: var(--bb-color-text-muted);
+}
+
+.bb-icon-button--ghost:hover {
+  background: var(--bb-color-surface-strong);
+  color: var(--bb-color-text);
+}
+
+.bb-icon-button--soft {
+  background: var(--bb-color-surface);
+  border-color: var(--bb-color-border);
+  color: var(--bb-color-text-muted);
+}
+
+.bb-icon-button--soft:hover {
+  background: var(--bb-color-surface-strong);
+  color: var(--bb-color-text);
+}
+
+.bb-icon-button--primary {
+  background: var(--bb-color-primary-soft);
+  border-color: var(--bb-color-primary);
+  color: var(--bb-color-text);
+  box-shadow: var(--bb-shadow-glow-primary);
+}
+
+.bb-icon-button--primary:hover {
+  background: var(--bb-color-primary);
+}
+
+/* Active */
+.bb-icon-button:active {
+  transform: scale(0.95);
+}

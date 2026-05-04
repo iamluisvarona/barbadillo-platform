@@ -1,0 +1,54 @@
+.bb-skeleton {
+  display: block;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--bb-color-surface) 0%,
+    var(--bb-color-surface-strong) 45%,
+    var(--bb-color-surface) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.bb-skeleton--animated {
+  background-size: 220% 100%;
+  animation: bb-skeleton-shimmer 1.25s ease-in-out infinite;
+}
+
+.bb-skeleton--text {
+  height: 14px;
+  border-radius: var(--bb-radius-sm);
+}
+
+.bb-skeleton--title {
+  height: 24px;
+  border-radius: var(--bb-radius-sm);
+}
+
+.bb-skeleton--circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+}
+
+.bb-skeleton--rect {
+  height: 80px;
+  border-radius: var(--bb-radius-md);
+}
+
+.bb-skeleton--card {
+  height: 140px;
+  border-radius: var(--bb-radius-lg);
+  box-shadow: var(--bb-shadow-card);
+}
+
+@keyframes bb-skeleton-shimmer {
+  0% {
+    background-position: 120% 0;
+  }
+
+  100% {
+    background-position: -120% 0;
+  }
+}
