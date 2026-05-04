@@ -35,10 +35,10 @@ export function Button({
     <button
       type={type}
       className={[
-        "t-button",
-        `t-button--${variant}`,
-        `t-button--${size}`,
-        fullWidth ? "t-button--full" : "",
+        "bb-button",
+        `bb-button--${variant}`,
+        `bb-button--${size}`,
+        fullWidth ? "bb-button--full" : "",
         className,
       ]
         .filter(Boolean)

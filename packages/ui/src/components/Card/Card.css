@@ -1,0 +1,60 @@
+.bb-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+    var(--bb-color-surface);
+  border: 1px solid var(--bb-color-border);
+  border-radius: var(--bb-radius-lg);
+  box-shadow: var(--bb-shadow-card);
+  color: var(--bb-color-text);
+}
+
+.bb-card--padding-none {
+  padding: 0;
+}
+
+.bb-card--padding-sm {
+  padding: var(--bb-space-3);
+}
+
+.bb-card--padding-md {
+  padding: var(--bb-space-4);
+}
+
+.bb-card--padding-lg {
+  padding: var(--bb-space-5);
+}
+
+.bb-card--interactive {
+  cursor: pointer;
+  transition:
+    transform 0.14s ease,
+    border-color 0.14s ease,
+    box-shadow 0.14s ease;
+}
+
+.bb-card--interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--bb-color-primary);
+  box-shadow: var(--bb-shadow-glow-primary);
+}
+
+.bb-card--highlight {
+  border-color: rgba(155, 60, 255, 0.7);
+  background:
+    radial-gradient(circle at top right, rgba(155, 60, 255, 0.18), transparent 38%),
+    var(--bb-color-surface);
+}
+
+.bb-card--danger {
+  border-color: rgba(255, 77, 94, 0.65);
+  background:
+    radial-gradient(circle at top right, rgba(255, 77, 94, 0.16), transparent 38%),
+    var(--bb-color-surface);
+}
+
+.bb-card--success {
+  border-color: rgba(81, 216, 90, 0.65);
+  background:
+    radial-gradient(circle at top right, rgba(81, 216, 90, 0.14), transparent 38%),
+    var(--bb-color-surface);
+}

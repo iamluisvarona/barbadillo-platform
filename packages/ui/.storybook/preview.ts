@@ -6,6 +6,15 @@ const preview = {
     controls: {
       expanded: true,
     },
+    backgrounds: {
+      default: "Barbadillo Dark",
+      values: [
+        {
+          name: "Barbadillo Dark",
+          value: "#020711",
+        },
+      ],
+    },
   },
 };
 

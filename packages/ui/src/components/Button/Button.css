@@ -1,87 +1,91 @@
-.t-button {
+.bb-button {
   border: 0;
-  border-radius: var(--t-radius-md);
-  font-family: var(--t-font-family);
-  font-weight: 700;
+  border-radius: var(--bb-radius-md);
+  font-family: var(--bb-font-family-base);
+  font-weight: 800;
   cursor: pointer;
   transition:
     transform 0.12s ease,
     opacity 0.12s ease,
-    background 0.12s ease;
+    box-shadow 0.12s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--t-space-2);
+  gap: var(--bb-space-2);
   min-height: 44px;
+  letter-spacing: 0.02em;
 }
 
-.t-button:active {
+.bb-button:active {
   transform: scale(0.98);
 }
 
-.t-button:disabled {
+.bb-button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 
-.t-button--sm {
+.bb-button--sm {
   min-height: 36px;
-  padding: 0 var(--t-space-3);
+  padding: 0 var(--bb-space-3);
   font-size: 14px;
 }
 
-.t-button--md {
-  min-height: 44px;
-  padding: 0 var(--t-space-4);
+.bb-button--md {
+  min-height: 46px;
+  padding: 0 var(--bb-space-4);
   font-size: 15px;
 }
 
-.t-button--lg {
-  min-height: 52px;
-  padding: 0 var(--t-space-5);
+.bb-button--lg {
+  min-height: 56px;
+  padding: 0 var(--bb-space-5);
   font-size: 17px;
 }
 
-.t-button--full {
+.bb-button--full {
   width: 100%;
 }
 
-.t-button--primary {
-  background: var(--t-color-primary);
-  color: #111827;
+.bb-button--primary {
+  background: linear-gradient(
+    135deg,
+    var(--bb-color-primary),
+    var(--bb-color-primary-strong)
+  );
+  color: white;
+  box-shadow: var(--bb-shadow-glow-primary);
 }
 
-.t-button--primary:hover {
-  background: var(--t-color-primary-strong);
+.bb-button--secondary {
+  background: var(--bb-color-surface-strong);
+  color: var(--bb-color-text);
+  border: 1px solid var(--bb-color-border);
 }
 
-.t-button--secondary {
-  background: var(--t-color-surface-soft);
-  color: var(--t-color-text);
-}
-
-.t-button--ghost {
+.bb-button--ghost {
   background: transparent;
-  color: var(--t-color-text);
+  color: var(--bb-color-text-soft);
+  border: 1px solid var(--bb-color-border);
 }
 
-.t-button--danger {
-  background: var(--t-color-danger);
+.bb-button--danger {
+  background: var(--bb-color-danger);
   color: white;
 }
 
-.t-button--success {
-  background: var(--t-color-success);
-  color: #052e16;
+.bb-button--success {
+  background: var(--bb-color-success);
+  color: #04120a;
 }
 
-.t-button--warning {
-  background: var(--t-color-warning);
-  color: #111827;
+.bb-button--warning {
+  background: var(--bb-color-warning);
+  color: #160b00;
 }
 
-.t-button--link {
+.bb-button--link {
   background: transparent;
-  color: var(--t-color-primary);
+  color: var(--bb-color-primary);
   padding-inline: 0;
 }
