@@ -1,0 +1,87 @@
+.t-button {
+  border: 0;
+  border-radius: var(--t-radius-md);
+  font-family: var(--t-font-family);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    opacity 0.12s ease,
+    background 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--t-space-2);
+  min-height: 44px;
+}
+
+.t-button:active {
+  transform: scale(0.98);
+}
+
+.t-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.t-button--sm {
+  min-height: 36px;
+  padding: 0 var(--t-space-3);
+  font-size: 14px;
+}
+
+.t-button--md {
+  min-height: 44px;
+  padding: 0 var(--t-space-4);
+  font-size: 15px;
+}
+
+.t-button--lg {
+  min-height: 52px;
+  padding: 0 var(--t-space-5);
+  font-size: 17px;
+}
+
+.t-button--full {
+  width: 100%;
+}
+
+.t-button--primary {
+  background: var(--t-color-primary);
+  color: #111827;
+}
+
+.t-button--primary:hover {
+  background: var(--t-color-primary-strong);
+}
+
+.t-button--secondary {
+  background: var(--t-color-surface-soft);
+  color: var(--t-color-text);
+}
+
+.t-button--ghost {
+  background: transparent;
+  color: var(--t-color-text);
+}
+
+.t-button--danger {
+  background: var(--t-color-danger);
+  color: white;
+}
+
+.t-button--success {
+  background: var(--t-color-success);
+  color: #052e16;
+}
+
+.t-button--warning {
+  background: var(--t-color-warning);
+  color: #111827;
+}
+
+.t-button--link {
+  background: transparent;
+  color: var(--t-color-primary);
+  padding-inline: 0;
+}
