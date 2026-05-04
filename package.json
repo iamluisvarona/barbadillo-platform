@@ -1,0 +1,16 @@
+{
+  "name": "barbadillo-platform",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev:shell": "pnpm --filter @barbadillo/shell dev",
+    "dev:ui": "pnpm --filter @barbadillo/ui storybook",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  },
+  "packageManager": "pnpm@9.0.0"
+}
