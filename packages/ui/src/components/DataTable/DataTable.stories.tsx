@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
 import { Badge } from "../Badge";
+import { BulkActionsBar } from "../BulkActionsBar";
+import { Button } from "../Button";
 import { Card } from "../Card";
 import { Stack } from "../Stack";
 import { Text } from "../Typography";
 import { DataTable, type DataTableColumn } from "./DataTable";
-import { Button } from "../Button";
 
 interface TeamRow {
   id: string;
@@ -43,22 +45,30 @@ const columns: DataTableColumn<TeamRow>[] = [
     key: "name",
     header: "Equipo",
     render: (team) => team.name,
+    sortable: true,
+    sortFn: (a, b) => a.name.localeCompare(b.name),
   },
   {
     key: "category",
     header: "Categoría",
     render: (team) => team.category,
+    sortable: true,
+    sortFn: (a, b) => a.category.localeCompare(b.category),
   },
   {
     key: "players",
     header: "Jugadores",
     align: "right",
     render: (team) => team.players,
+    sortable: true,
+    sortFn: (a, b) => a.players - b.players,
   },
   {
     key: "paymentStatus",
     header: "Pago",
     render: (team) => <Badge>{team.paymentStatus}</Badge>,
+    sortable: true,
+    sortFn: (a, b) => a.paymentStatus.localeCompare(b.paymentStatus),
   },
 ];
 
@@ -68,17 +78,33 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  args: {
+    columns,
+    data: teams,
+    getRowKey: (team) => team.id,
+  },
 } satisfies Meta<typeof DataTable<TeamRow>>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default: Story = {};
+
+export const Sortable: Story = {
   args: {
     columns,
     data: teams,
     getRowKey: (team) => team.id,
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    columns,
+    data: teams,
+    getRowKey: (team) => team.id,
+    loading: true,
   },
 };
 
@@ -88,29 +114,6 @@ export const Empty: Story = {
     data: [],
     getRowKey: (team) => team.id,
     emptyMessage: "No hay equipos que coincidan con la búsqueda.",
-  },
-};
-
-export const InCard: Story = {
-  render: () => (
-    <Card style={{ width: 760 }}>
-      <Stack gap={4}>
-        <Text tone="muted">
-          Tabla simple para backoffice, pagos, equipos o transporte.
-        </Text>
-
-        <DataTable
-          columns={columns}
-          data={teams}
-          getRowKey={(team) => team.id}
-        />
-      </Stack>
-    </Card>
-  ),
-  args: {
-    columns,
-    data: teams,
-    getRowKey: (team) => team.id,
   },
 };
 
@@ -134,5 +137,84 @@ export const WithActions: Story = {
         )}
       />
     </div>
+  ),
+};
+
+export const Selectable: Story = {
+  args: {
+    columns,
+    data: teams,
+    getRowKey: (team) => team.id,
+    selectable: true,
+  },
+};
+
+export const SelectableWithBulkActions: Story = {
+  args: {
+    columns,
+    data: teams,
+    getRowKey: (team) => team.id,
+    selectable: true,
+  },
+  render: () => {
+    const [selectedKeys, setSelectedKeys] = useState<(string | number)[]>([]);
+
+    return (
+      <div style={{ width: 820 }}>
+        <Stack gap={4}>
+          <BulkActionsBar
+            selectedCount={selectedKeys.length}
+            onClear={() => setSelectedKeys([])}
+          >
+            <Button size="sm" variant="secondary">
+              Exportar
+            </Button>
+            <Button size="sm">Generar acreditaciones</Button>
+          </BulkActionsBar>
+
+          <DataTable
+            columns={columns}
+            data={teams}
+            getRowKey={(team) => team.id}
+            selectable
+            onSelectionChange={setSelectedKeys}
+            actions={() => (
+              <Button size="sm" variant="secondary">
+                Ver
+              </Button>
+            )}
+          />
+        </Stack>
+      </div>
+    );
+  },
+};
+
+export const InCard: Story = {
+  args: {
+    columns,
+    data: teams,
+    getRowKey: (team) => team.id,
+  },
+  render: () => (
+    <Card style={{ width: 820 }}>
+      <Stack gap={4}>
+        <Text tone="muted">
+          DataTable v3 con sorting, selección, acciones, loading y empty state.
+        </Text>
+
+        <DataTable
+          columns={columns}
+          data={teams}
+          getRowKey={(team) => team.id}
+          selectable
+          actions={() => (
+            <Button size="sm" variant="secondary">
+              Ver
+            </Button>
+          )}
+        />
+      </Stack>
+    </Card>
   ),
 };

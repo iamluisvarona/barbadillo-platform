@@ -74,3 +74,15 @@
   flex-direction: column;
   gap: var(--bb-space-2);
 }
+
+.bb-data-table__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.bb-data-table__sort {
+  font-size: 0.7rem;
+  color: var(--bb-color-text-muted);
+}

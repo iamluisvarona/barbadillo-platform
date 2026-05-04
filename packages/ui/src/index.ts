@@ -43,3 +43,4 @@ export * from "./components/TripCard";
 export * from "./components/AccreditationCard";
 export * from "./components/FilterBar";
 export * from "./components/TopBar";
+export * from "./components/BulkActionsBar";
