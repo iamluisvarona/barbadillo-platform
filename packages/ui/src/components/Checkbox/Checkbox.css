@@ -1,0 +1,112 @@
+.bb-checkbox-field {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--bb-space-3);
+  color: var(--bb-color-text);
+  font-family: var(--bb-font-family-base);
+  cursor: pointer;
+}
+
+.bb-checkbox-control {
+  position: relative;
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+}
+
+.bb-checkbox-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.bb-checkbox-box {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  border: 1px solid var(--bb-color-border);
+  background: var(--bb-color-surface-strong);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color 0.14s ease,
+    background 0.14s ease,
+    box-shadow 0.14s ease;
+}
+
+.bb-checkbox-box::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg) scale(0);
+  transition: transform 0.12s ease;
+  margin-top: -2px;
+}
+
+.bb-checkbox-input:checked + .bb-checkbox-box {
+  background: linear-gradient(
+    135deg,
+    var(--bb-color-primary),
+    var(--bb-color-primary-strong)
+  );
+  border-color: var(--bb-color-primary);
+  box-shadow: 0 0 0 3px var(--bb-color-primary-soft);
+}
+
+.bb-checkbox-input:checked + .bb-checkbox-box::after {
+  transform: rotate(-45deg) scale(1);
+}
+
+.bb-checkbox-input:focus-visible + .bb-checkbox-box {
+  border-color: var(--bb-color-primary);
+  box-shadow: 0 0 0 3px var(--bb-color-primary-soft);
+}
+
+.bb-checkbox-input:disabled + .bb-checkbox-box,
+.bb-checkbox-input:disabled ~ .bb-checkbox-box {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.bb-checkbox-field:has(.bb-checkbox-input:disabled) {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.bb-checkbox-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bb-space-1);
+}
+
+.bb-checkbox-label {
+  color: var(--bb-color-text-soft);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.bb-checkbox-helper {
+  color: var(--bb-color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.bb-checkbox-error {
+  color: var(--bb-color-danger);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.bb-checkbox-field--error .bb-checkbox-box {
+  border-color: var(--bb-color-danger);
+}

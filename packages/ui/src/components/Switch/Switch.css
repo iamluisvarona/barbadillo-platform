@@ -1,0 +1,115 @@
+.bb-switch-field {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--bb-space-4);
+  width: 100%;
+  color: var(--bb-color-text);
+  font-family: var(--bb-font-family-base);
+  cursor: pointer;
+}
+
+.bb-switch-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bb-space-1);
+  min-width: 0;
+}
+
+.bb-switch-label {
+  color: var(--bb-color-text-soft);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.bb-switch-helper {
+  color: var(--bb-color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.bb-switch-error {
+  color: var(--bb-color-danger);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.bb-switch-control {
+  position: relative;
+  flex: 0 0 auto;
+  width: 54px;
+  height: 32px;
+}
+
+.bb-switch-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.bb-switch-track {
+  width: 54px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid var(--bb-color-border);
+  background: var(--bb-color-surface-strong);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  transition:
+    border-color 0.14s ease,
+    background 0.14s ease,
+    box-shadow 0.14s ease;
+}
+
+.bb-switch-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--bb-color-text-muted);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transform: translateX(0);
+  transition:
+    transform 0.16s ease,
+    background 0.16s ease;
+}
+
+.bb-switch-input:checked + .bb-switch-track {
+  background: linear-gradient(
+    135deg,
+    var(--bb-color-primary),
+    var(--bb-color-primary-strong)
+  );
+  border-color: var(--bb-color-primary);
+  box-shadow: 0 0 0 3px var(--bb-color-primary-soft);
+}
+
+.bb-switch-input:checked + .bb-switch-track .bb-switch-thumb {
+  transform: translateX(22px);
+  background: #ffffff;
+}
+
+.bb-switch-input:focus-visible + .bb-switch-track {
+  border-color: var(--bb-color-primary);
+  box-shadow: 0 0 0 3px var(--bb-color-primary-soft);
+}
+
+.bb-switch-input:disabled + .bb-switch-track {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.bb-switch-field:has(.bb-switch-input:disabled) {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.bb-switch-field--error .bb-switch-track {
+  border-color: var(--bb-color-danger);
+}
