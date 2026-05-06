@@ -1,0 +1,89 @@
+.bb-trip-eta-chip {
+  width: fit-content;
+  max-width: 100%;
+
+  min-height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bb-space-2);
+
+  padding: 0 12px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: var(--bb-color-text-soft);
+
+  font-family: var(--bb-font-family-base);
+
+  white-space: nowrap;
+}
+
+.bb-trip-eta-chip__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
+}
+
+.bb-trip-eta-chip__label {
+  color: var(--bb-color-text-muted);
+
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bb-trip-eta-chip__value {
+  color: var(--bb-color-text);
+
+  font-size: 0.86rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.bb-trip-eta-chip--success {
+  border-color: rgba(81, 216, 90, 0.22);
+  background: rgba(81, 216, 90, 0.1);
+}
+
+.bb-trip-eta-chip--success .bb-trip-eta-chip__icon,
+.bb-trip-eta-chip--success .bb-trip-eta-chip__value {
+  color: var(--bb-color-success);
+}
+
+.bb-trip-eta-chip--warning {
+  border-color: rgba(255, 159, 26, 0.24);
+  background: rgba(255, 159, 26, 0.1);
+}
+
+.bb-trip-eta-chip--warning .bb-trip-eta-chip__icon,
+.bb-trip-eta-chip--warning .bb-trip-eta-chip__value {
+  color: var(--bb-color-warning);
+}
+
+.bb-trip-eta-chip--danger {
+  border-color: rgba(255, 77, 94, 0.24);
+  background: rgba(255, 77, 94, 0.1);
+}
+
+.bb-trip-eta-chip--danger .bb-trip-eta-chip__icon,
+.bb-trip-eta-chip--danger .bb-trip-eta-chip__value {
+  color: var(--bb-color-danger);
+}
+
+.bb-trip-eta-chip--info {
+  border-color: rgba(31, 167, 255, 0.24);
+  background: rgba(31, 167, 255, 0.1);
+}
+
+.bb-trip-eta-chip--info .bb-trip-eta-chip__icon,
+.bb-trip-eta-chip--info .bb-trip-eta-chip__value {
+  color: var(--bb-color-info);
+}

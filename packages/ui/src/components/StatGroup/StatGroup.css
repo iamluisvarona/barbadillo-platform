@@ -1,0 +1,129 @@
+.bb-stat-group {
+  display: grid;
+  gap: var(--bb-space-4);
+}
+
+.bb-stat-group--cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.bb-stat-group--cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bb-stat-group--cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.bb-stat-group--cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.bb-stat-group__item {
+  min-width: 0;
+
+  padding: var(--bb-space-4);
+
+  border-radius: var(--bb-radius-lg);
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.025),
+    rgba(255, 255, 255, 0.01)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--bb-space-3);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.bb-stat-group__item:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(155, 60, 255, 0.28);
+
+  background: linear-gradient(
+    180deg,
+    rgba(155, 60, 255, 0.08),
+    rgba(255, 255, 255, 0.015)
+  );
+}
+
+.bb-stat-group__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--bb-space-3);
+}
+
+.bb-stat-group__label-wrapper {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: var(--bb-space-2);
+}
+
+.bb-stat-group__icon {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(155, 60, 255, 0.12);
+
+  color: var(--bb-color-primary);
+
+  flex-shrink: 0;
+}
+
+.bb-stat-group__label {
+  color: var(--bb-color-text-muted);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.bb-stat-group__trend {
+  flex-shrink: 0;
+
+  color: var(--bb-color-success);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.bb-stat-group__value {
+  color: var(--bb-color-text);
+
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.bb-stat-group__description {
+  color: var(--bb-color-text-muted);
+
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 768px) {
+  .bb-stat-group--cols-2,
+  .bb-stat-group--cols-3,
+  .bb-stat-group--cols-4 {
+    grid-template-columns: 1fr;
+  }
+}

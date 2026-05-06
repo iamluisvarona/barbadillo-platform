@@ -23,6 +23,7 @@ export interface DataTableProps<T> {
   emptyMessage?: ReactNode;
   actions?: (item: T) => ReactNode;
   selectable?: boolean;
+  selectedKeys?: (string | number)[];
   onSelectionChange?: (selectedKeys: (string | number)[]) => void;
 }
 
@@ -36,11 +37,16 @@ export function DataTable<T>({
   emptyMessage = "No hay datos disponibles.",
   actions,
   selectable = false,
+  selectedKeys,
   onSelectionChange,
 }: DataTableProps<T>) {
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<SortDirection>(null);
-  const [selected, setSelected] = useState<(string | number)[]>([]);
+  const [internalSelectedKeys, setInternalSelectedKeys] = useState<
+    (string | number)[]
+  >([]);
+
+  const selected = selectedKeys ?? internalSelectedKeys;
 
   let sortedData = [...data];
 
@@ -71,7 +77,10 @@ export function DataTable<T>({
   };
 
   const updateSelection = (next: (string | number)[]) => {
-    setSelected(next);
+    if (selectedKeys === undefined) {
+      setInternalSelectedKeys(next);
+    }
+
     onSelectionChange?.(next);
   };
 

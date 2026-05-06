@@ -1,0 +1,84 @@
+.bb-live-location-indicator {
+  width: fit-content;
+  max-width: 100%;
+
+  min-height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bb-space-2);
+
+  padding: 0 12px;
+
+  border-radius: 999px;
+
+  border: 1px solid transparent;
+
+  font-family: var(--bb-font-family-base);
+  font-size: 0.8rem;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.bb-live-location-indicator--compact {
+  min-height: 28px;
+
+  padding: 0 10px;
+
+  font-size: 0.72rem;
+}
+
+.bb-live-location-indicator__dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 999px;
+
+  background: currentColor;
+
+  flex-shrink: 0;
+}
+
+.bb-live-location-indicator__dot--pulse {
+  animation: bb-live-location-pulse 1.6s infinite;
+}
+
+.bb-live-location-indicator--success {
+  background: rgba(81, 216, 90, 0.1);
+  border-color: rgba(81, 216, 90, 0.22);
+  color: var(--bb-color-success);
+}
+
+.bb-live-location-indicator--warning {
+  background: rgba(255, 159, 26, 0.1);
+  border-color: rgba(255, 159, 26, 0.22);
+  color: var(--bb-color-warning);
+}
+
+.bb-live-location-indicator--danger {
+  background: rgba(255, 77, 94, 0.1);
+  border-color: rgba(255, 77, 94, 0.22);
+  color: var(--bb-color-danger);
+}
+
+.bb-live-location-indicator__label {
+  line-height: 1;
+}
+
+@keyframes bb-live-location-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(81, 216, 90, 0.5);
+  }
+
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(81, 216, 90, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(81, 216, 90, 0);
+  }
+}

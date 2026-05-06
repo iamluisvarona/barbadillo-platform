@@ -1,0 +1,123 @@
+.bb-trip-status-badge {
+  width: fit-content;
+  max-width: 100%;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bb-space-2);
+
+  border-radius: 999px;
+
+  border: 1px solid transparent;
+
+  font-family: var(--bb-font-family-base);
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.bb-trip-status-badge--sm {
+  min-height: 24px;
+
+  padding: 0 10px;
+
+  font-size: 0.72rem;
+}
+
+.bb-trip-status-badge--md {
+  min-height: 32px;
+
+  padding: 0 14px;
+
+  font-size: 0.82rem;
+}
+
+.bb-trip-status-badge__dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 999px;
+
+  background: currentColor;
+
+  flex-shrink: 0;
+}
+
+.bb-trip-status-badge__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bb-trip-status-badge--assigned {
+  background: rgba(31, 167, 255, 0.12);
+  border-color: rgba(31, 167, 255, 0.24);
+
+  color: var(--bb-color-info);
+}
+
+.bb-trip-status-badge--confirmed {
+  background: rgba(155, 60, 255, 0.14);
+  border-color: rgba(155, 60, 255, 0.24);
+
+  color: var(--bb-color-primary);
+}
+
+.bb-trip-status-badge--going_to_pickup {
+  background: linear-gradient(
+    135deg,
+    rgba(155, 60, 255, 0.16),
+    rgba(31, 167, 255, 0.16)
+  );
+
+  border-color: rgba(155, 60, 255, 0.28);
+
+  color: #c8a2ff;
+}
+
+.bb-trip-status-badge--arrived {
+  background: rgba(255, 159, 26, 0.12);
+  border-color: rgba(255, 159, 26, 0.24);
+
+  color: var(--bb-color-warning);
+}
+
+.bb-trip-status-badge--in_progress {
+  background: rgba(81, 216, 90, 0.12);
+  border-color: rgba(81, 216, 90, 0.24);
+
+  color: var(--bb-color-success);
+}
+
+.bb-trip-status-badge--completed {
+  background: rgba(81, 216, 90, 0.12);
+  border-color: rgba(81, 216, 90, 0.24);
+
+  color: var(--bb-color-success);
+}
+
+.bb-trip-status-badge--cancelled {
+  background: rgba(255, 77, 94, 0.12);
+  border-color: rgba(255, 77, 94, 0.24);
+
+  color: var(--bb-color-danger);
+}
+
+.bb-trip-status-badge--rejected {
+  background: rgba(255, 77, 94, 0.12);
+  border-color: rgba(255, 77, 94, 0.24);
+
+  color: var(--bb-color-danger);
+}
+
+.bb-trip-status-badge--incident {
+  background: rgba(255, 159, 26, 0.14);
+  border-color: rgba(255, 159, 26, 0.28);
+
+  color: var(--bb-color-warning);
+}

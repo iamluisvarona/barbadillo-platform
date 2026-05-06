@@ -1,0 +1,92 @@
+.bb-route-map-panel {
+  width: 100%;
+  height: var(--bb-route-map-panel-height);
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: var(--bb-radius-xl);
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(155, 60, 255, 0.16),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(31, 167, 255, 0.12),
+      transparent 30%
+    ),
+    var(--bb-color-surface);
+
+  border: 1px solid var(--bb-color-border);
+
+  box-shadow: var(--bb-shadow-card);
+}
+
+.bb-route-map-panel__content {
+  width: 100%;
+  height: 100%;
+}
+
+.bb-route-map-panel__actions {
+  position: absolute;
+  right: var(--bb-space-4);
+  bottom: var(--bb-space-4);
+  z-index: 2;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--bb-space-2);
+}
+
+.bb-route-map-panel__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bb-space-3);
+
+  padding: var(--bb-space-5);
+
+  background: rgba(2, 7, 17, 0.72);
+  backdrop-filter: blur(8px);
+
+  color: var(--bb-color-text-soft);
+
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.bb-route-map-panel__overlay--error {
+  color: var(--bb-color-danger);
+}
+
+.bb-route-map-panel__overlay--error span {
+  max-width: 320px;
+
+  color: var(--bb-color-text-muted);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+@media (max-width: 640px) {
+  .bb-route-map-panel {
+    height: min(var(--bb-route-map-panel-height), 56vh);
+  }
+
+  .bb-route-map-panel__actions {
+    right: var(--bb-space-3);
+    bottom: var(--bb-space-3);
+    left: var(--bb-space-3);
+  }
+}

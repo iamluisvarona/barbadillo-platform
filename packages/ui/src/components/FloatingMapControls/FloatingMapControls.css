@@ -1,0 +1,101 @@
+.bb-floating-map-controls {
+  width: fit-content;
+
+  display: flex;
+  gap: var(--bb-space-2);
+
+  padding: var(--bb-space-2);
+
+  border-radius: calc(var(--bb-radius-xl) + 4px);
+
+  background: linear-gradient(
+    180deg,
+    rgba(13, 26, 43, 0.96),
+    rgba(9, 19, 33, 0.96)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: var(--bb-shadow-card);
+
+  backdrop-filter: blur(10px);
+}
+
+.bb-floating-map-controls--vertical {
+  flex-direction: column;
+}
+
+.bb-floating-map-controls--horizontal {
+  flex-direction: row;
+}
+
+.bb-floating-map-controls__button {
+  appearance: none;
+  border: 0;
+  outline: none;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: var(--bb-radius-lg);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: var(--bb-color-text-soft);
+
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.bb-floating-map-controls__button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.09);
+
+  transform: translateY(-1px);
+}
+
+.bb-floating-map-controls__button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.bb-floating-map-controls__button:disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+}
+
+.bb-floating-map-controls__button--active {
+  background: linear-gradient(
+    135deg,
+    rgba(155, 60, 255, 0.22),
+    rgba(31, 167, 255, 0.14)
+  );
+
+  color: var(--bb-color-primary);
+
+  box-shadow: var(--bb-shadow-glow-primary);
+}
+
+.bb-floating-map-controls__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .bb-floating-map-controls__button {
+    width: 44px;
+    height: 44px;
+  }
+}

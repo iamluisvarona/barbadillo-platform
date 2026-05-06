@@ -7,6 +7,7 @@ import { Card } from "../Card";
 import { Stack } from "../Stack";
 import { Text } from "../Typography";
 import { DataTable, type DataTableColumn } from "./DataTable";
+import { Pagination } from "../Pagination";
 
 interface TeamRow {
   id: string;
@@ -140,6 +141,46 @@ export const WithActions: Story = {
   ),
 };
 
+export const WithPagination: Story = {
+  args: {
+    columns,
+    data: teams,
+    getRowKey: (team) => team.id,
+  },
+  render: () => {
+    const [page, setPage] = useState(1);
+
+    const pageSize = 2;
+    const pageCount = Math.ceil(teams.length / pageSize);
+
+    const paginatedTeams = teams.slice((page - 1) * pageSize, page * pageSize);
+
+    return (
+      <div style={{ width: 820 }}>
+        <Stack gap={4}>
+          <DataTable
+            columns={columns}
+            data={paginatedTeams}
+            getRowKey={(team) => team.id}
+            selectable
+            actions={() => (
+              <Button size="sm" variant="secondary">
+                Ver
+              </Button>
+            )}
+          />
+
+          <Pagination
+            page={page}
+            pageCount={pageCount}
+            onPageChange={setPage}
+          />
+        </Stack>
+      </div>
+    );
+  },
+};
+
 export const Selectable: Story = {
   args: {
     columns,
@@ -177,6 +218,7 @@ export const SelectableWithBulkActions: Story = {
             data={teams}
             getRowKey={(team) => team.id}
             selectable
+            selectedKeys={selectedKeys}
             onSelectionChange={setSelectedKeys}
             actions={() => (
               <Button size="sm" variant="secondary">

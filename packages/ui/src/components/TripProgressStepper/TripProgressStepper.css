@@ -1,0 +1,43 @@
+.bb-trip-progress-stepper {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: var(--bb-space-2);
+  scrollbar-width: none;
+}
+
+.bb-trip-progress-stepper::-webkit-scrollbar {
+  display: none;
+}
+
+.bb-trip-progress-stepper .bb-stepper {
+  min-width: 560px;
+}
+
+.bb-trip-progress-stepper .bb-stepper__step {
+  min-width: 104px;
+}
+
+.bb-trip-progress-stepper--compact .bb-stepper {
+  min-width: 460px;
+}
+
+.bb-trip-progress-stepper--compact .bb-stepper__indicator {
+  width: 32px;
+  height: 32px;
+  font-size: 0.78rem;
+}
+
+.bb-trip-progress-stepper--compact .bb-stepper__label {
+  font-size: 0.78rem;
+}
+
+.bb-trip-progress-stepper--compact
+  .bb-stepper--horizontal
+  .bb-stepper__content {
+  margin-top: var(--bb-space-2);
+}
+
+.bb-trip-progress-stepper--compact .bb-stepper--horizontal .bb-stepper__line {
+  left: calc(50% + 16px);
+  width: calc(100% - 32px);
+}

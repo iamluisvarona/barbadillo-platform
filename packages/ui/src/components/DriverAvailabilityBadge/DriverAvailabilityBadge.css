@@ -1,0 +1,68 @@
+.bb-driver-availability-badge {
+  width: fit-content;
+  max-width: 100%;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bb-space-2);
+
+  border-radius: 999px;
+
+  font-family: var(--bb-font-family-base);
+  font-weight: 800;
+
+  border: 1px solid transparent;
+
+  white-space: nowrap;
+}
+
+.bb-driver-availability-badge--sm {
+  min-height: 28px;
+
+  padding: 0 10px;
+
+  font-size: 0.72rem;
+}
+
+.bb-driver-availability-badge--md {
+  min-height: 34px;
+
+  padding: 0 12px;
+
+  font-size: 0.8rem;
+}
+
+.bb-driver-availability-badge__dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 999px;
+
+  background: currentColor;
+
+  flex-shrink: 0;
+}
+
+.bb-driver-availability-badge--success {
+  background: rgba(81, 216, 90, 0.1);
+  border-color: rgba(81, 216, 90, 0.2);
+  color: var(--bb-color-success);
+}
+
+.bb-driver-availability-badge--info {
+  background: rgba(31, 167, 255, 0.1);
+  border-color: rgba(31, 167, 255, 0.2);
+  color: var(--bb-color-info);
+}
+
+.bb-driver-availability-badge--warning {
+  background: rgba(255, 159, 26, 0.1);
+  border-color: rgba(255, 159, 26, 0.2);
+  color: var(--bb-color-warning);
+}
+
+.bb-driver-availability-badge--danger {
+  background: rgba(255, 77, 94, 0.1);
+  border-color: rgba(255, 77, 94, 0.2);
+  color: var(--bb-color-danger);
+}

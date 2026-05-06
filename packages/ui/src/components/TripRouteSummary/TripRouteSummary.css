@@ -1,0 +1,154 @@
+.bb-trip-route-summary {
+  width: 100%;
+  min-width: 0;
+}
+
+.bb-trip-route-summary--compact {
+  display: flex;
+  align-items: center;
+  gap: var(--bb-space-2);
+
+  min-width: 0;
+
+  color: var(--bb-color-text-soft);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.bb-trip-route-summary__compact-point {
+  color: var(--bb-color-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.bb-trip-route-summary__compact-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bb-trip-route-summary__compact-separator {
+  color: var(--bb-color-text-muted);
+
+  flex-shrink: 0;
+}
+
+.bb-trip-route-summary--detailed,
+.bb-trip-route-summary--vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bb-space-4);
+}
+
+.bb-trip-route-summary__location {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--bb-space-3);
+
+  min-width: 0;
+}
+
+.bb-trip-route-summary__marker-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.bb-trip-route-summary__marker {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--bb-color-surface-strong);
+
+  border: 1px solid var(--bb-color-border);
+}
+
+.bb-trip-route-summary__marker--origin {
+  color: var(--bb-color-primary);
+}
+
+.bb-trip-route-summary__marker--destination {
+  color: var(--bb-color-success);
+}
+
+.bb-trip-route-summary__dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 999px;
+
+  background: currentColor;
+}
+
+.bb-trip-route-summary__square {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 3px;
+
+  background: currentColor;
+}
+
+.bb-trip-route-summary__line {
+  width: 2px;
+  flex: 1;
+
+  min-height: 40px;
+
+  margin-top: var(--bb-space-2);
+
+  background: linear-gradient(
+    180deg,
+    rgba(155, 60, 255, 0.7),
+    rgba(81, 216, 90, 0.7)
+  );
+}
+
+.bb-trip-route-summary__content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--bb-space-1);
+}
+
+.bb-trip-route-summary__label {
+  color: var(--bb-color-text);
+
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.bb-trip-route-summary__address {
+  color: var(--bb-color-text-muted);
+
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.bb-trip-route-summary--vertical .bb-trip-route-summary__location {
+  gap: var(--bb-space-4);
+}
+
+.bb-trip-route-summary--vertical .bb-trip-route-summary__line {
+  min-height: 56px;
+}
+
+.bb-trip-route-summary--vertical .bb-trip-route-summary__marker {
+  width: 32px;
+  height: 32px;
+}

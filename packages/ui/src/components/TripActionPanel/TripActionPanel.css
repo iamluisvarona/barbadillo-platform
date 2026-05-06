@@ -1,0 +1,56 @@
+.bb-trip-action-panel {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--bb-space-3);
+
+  padding: var(--bb-space-4);
+
+  border-radius: var(--bb-radius-xl);
+
+  background: linear-gradient(
+    180deg,
+    rgba(13, 26, 43, 0.96),
+    rgba(9, 19, 33, 0.96)
+  );
+
+  border: 1px solid var(--bb-color-border);
+
+  box-shadow: var(--bb-shadow-card);
+}
+
+.bb-trip-action-panel--sticky {
+  position: sticky;
+  bottom: var(--bb-space-3);
+  z-index: 20;
+}
+
+.bb-trip-action-panel__primary {
+  width: 100%;
+  min-height: 54px;
+}
+
+.bb-trip-action-panel__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
+}
+
+.bb-trip-action-panel__secondary-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bb-space-3);
+}
+
+.bb-trip-action-panel__secondary-row > * {
+  min-height: 48px;
+}
+
+@media (min-width: 640px) {
+  .bb-trip-action-panel__secondary-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

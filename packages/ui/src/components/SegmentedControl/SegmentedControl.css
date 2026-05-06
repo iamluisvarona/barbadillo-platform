@@ -1,0 +1,103 @@
+.bb-segmented-control {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.bb-segmented-control--full-width {
+  width: 100%;
+}
+
+.bb-segmented-control__inner {
+  width: 100%;
+
+  display: flex;
+  align-items: stretch;
+
+  padding: 4px;
+
+  border-radius: var(--bb-radius-xl);
+
+  background: var(--bb-color-surface-strong);
+
+  border: 1px solid var(--bb-color-border);
+
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.bb-segmented-control__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.bb-segmented-control__button {
+  appearance: none;
+  border: 0;
+  outline: none;
+  background: transparent;
+
+  min-height: 44px;
+
+  padding: 0 var(--bb-space-4);
+
+  border-radius: calc(var(--bb-radius-xl) - 6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bb-space-2);
+
+  color: var(--bb-color-text-muted);
+
+  font-family: var(--bb-font-family-base);
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+
+  white-space: nowrap;
+
+  flex-shrink: 0;
+}
+
+.bb-segmented-control--full-width .bb-segmented-control__button {
+  flex: 1;
+}
+
+.bb-segmented-control__button:hover:not(:disabled) {
+  color: var(--bb-color-text);
+}
+
+.bb-segmented-control__button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.bb-segmented-control__button--active {
+  background: var(--bb-color-primary);
+  color: white;
+
+  box-shadow: var(--bb-shadow-glow-primary);
+}
+
+.bb-segmented-control__button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.bb-segmented-control__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.bb-segmented-control__label {
+  line-height: 1;
+}
