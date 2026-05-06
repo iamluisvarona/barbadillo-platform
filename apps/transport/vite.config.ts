@@ -6,15 +6,16 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "shell",
-      remotes: {
-        transport: "http://localhost:5174/assets/remoteEntry.js",
+      name: "transport",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./TransportApp": "./src/app/TransportApp.tsx",
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   server: {
-    port: 5173,
+    port: 5174,
   },
   build: {
     target: "esnext",

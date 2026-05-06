@@ -1,11 +1,14 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
+
 import { ShellLayout } from "../layouts/ShellLayout";
 import { DashboardPage } from "../pages/DashboardPage";
 import { TeamsPage } from "../pages/TeamsPage";
 import { PaymentsPage } from "../pages/PaymentsPage";
 import { HotelsPage } from "../pages/HotelsPage";
-import { TransportPage } from "../pages/TransportPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
+
+const TransportApp = lazy(() => import("transport/TransportApp"));
 
 export const router = createBrowserRouter([
   {
@@ -30,8 +33,14 @@ export const router = createBrowserRouter([
         element: <HotelsPage />,
       },
       {
-        path: "transport",
-        element: <TransportPage />,
+        path: "transport/*",
+        element: (
+          <Suspense
+            fallback={<div style={{ padding: 24 }}>Cargando transporte...</div>}
+          >
+            <TransportApp />
+          </Suspense>
+        ),
       },
     ],
   },
