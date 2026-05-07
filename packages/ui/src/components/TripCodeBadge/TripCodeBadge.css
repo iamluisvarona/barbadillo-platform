@@ -1,0 +1,28 @@
+.bb-trip-code-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  min-width: 0;
+}
+
+.bb-trip-code-badge__code {
+  color: var(--bb-color-text-primary);
+
+  font-size: 0.95rem;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+
+  white-space: nowrap;
+}
+
+.bb-trip-code-badge__direction {
+  color: var(--bb-color-text-muted);
+
+  font-size: 0.88rem;
+  line-height: 1.25;
+  font-weight: 500;
+
+  white-space: nowrap;
+}

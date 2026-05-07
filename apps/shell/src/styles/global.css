@@ -229,3 +229,15 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,48 +1,51 @@
-import type { HTMLAttributes, ReactNode } from "react";
+import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
+
 import "./Stack.css";
 
 export type StackDirection = "vertical" | "horizontal";
 export type StackAlign = "start" | "center" | "end" | "stretch";
 export type StackJustify = "start" | "center" | "end" | "between" | "around";
 
-export type StackGap = 1 | 2 | 3 | 4 | 5 | 6;
-
-export type StackProps = HTMLAttributes<HTMLDivElement> & {
-  children?: ReactNode;
+export interface StackProps extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
   direction?: StackDirection;
-  gap?: StackGap;
+  gap?: number;
   align?: StackAlign;
   justify?: StackJustify;
-  fullWidth?: boolean;
-};
+  full?: boolean;
+}
 
 export function Stack({
   children,
   direction = "vertical",
-  gap = 3,
-  align = "start",
+  gap = 4,
+  align = "stretch",
   justify = "start",
-  fullWidth = false,
+  full = true,
   className = "",
   style,
   ...props
 }: StackProps) {
+  const classes = [
+    "bb-stack",
+    `bb-stack--${direction}`,
+    `bb-stack--align-${align}`,
+    `bb-stack--justify-${justify}`,
+    full ? "bb-stack--full" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <div
-      className={[
-        "bb-stack",
-        `bb-stack--${direction}`,
-        `bb-stack--align-${align}`,
-        `bb-stack--justify-${justify}`,
-        fullWidth ? "bb-stack--full" : "",
-        className,
-      ]
-        .filter(Boolean)
-        .join(" ")}
-      style={{
-        gap: `var(--bb-space-${gap})`,
-        ...style,
-      }}
+      className={classes}
+      style={
+        {
+          "--bb-stack-gap": `var(--bb-space-${gap})`,
+          ...style,
+        } as CSSProperties
+      }
       {...props}
     >
       {children}

@@ -1,12 +1,7 @@
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
-import { defineConfig } from "vite";
-
-import { fileURLToPath } from "node:url";
-import { dirname, resolve } from "node:path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import path from "path";
 
 export default defineConfig({
   plugins: [
@@ -17,13 +12,13 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
-      name: "BarbadilloUi",
-      formats: ["es", "umd"],
+      entry: path.resolve(__dirname, "src/index.ts"),
+      name: "BarbadilloUI",
       fileName: "index",
+      formats: ["es", "umd"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: ["react", "react-dom"],
       output: {
         globals: {
           react: "React",

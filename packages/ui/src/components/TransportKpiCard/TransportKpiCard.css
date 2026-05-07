@@ -1,0 +1,208 @@
+.bb-transport-kpi-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--bb-space-5);
+
+  min-height: 168px;
+  padding: var(--bb-space-6);
+
+  overflow: hidden;
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: var(--bb-radius-2xl);
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(124, 58, 237, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(2, 12, 27, 0.98));
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  color: var(--bb-color-text-primary);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.bb-transport-kpi-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    transparent 42%
+  );
+}
+
+.bb-transport-kpi-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(167, 139, 250, 0.34);
+
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(124, 58, 237, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.bb-transport-kpi-card__icon {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 56px;
+  height: 56px;
+
+  border-radius: 999px;
+
+  font-size: 26px;
+  line-height: 1;
+
+  background: rgba(124, 58, 237, 0.18);
+  color: #c4b5fd;
+
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.16),
+    0 0 30px rgba(124, 58, 237, 0.22);
+}
+
+.bb-transport-kpi-card__content {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--bb-space-2);
+
+  min-width: 0;
+}
+
+.bb-transport-kpi-card__value {
+  display: block;
+
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+
+  color: var(--bb-color-text-primary);
+}
+
+.bb-transport-kpi-card__label {
+  color: var(--bb-color-text-secondary);
+
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.bb-transport-kpi-card__trend {
+  margin-top: var(--bb-space-1);
+
+  color: var(--bb-color-text-muted);
+
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+/* tones */
+
+.bb-transport-kpi-card--primary .bb-transport-kpi-card__icon {
+  background: rgba(124, 58, 237, 0.2);
+  color: #c4b5fd;
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.18),
+    0 0 30px rgba(124, 58, 237, 0.28);
+}
+
+.bb-transport-kpi-card--success .bb-transport-kpi-card__icon {
+  background: rgba(34, 197, 94, 0.16);
+  color: #86efac;
+  box-shadow:
+    0 0 0 1px rgba(34, 197, 94, 0.18),
+    0 0 30px rgba(34, 197, 94, 0.2);
+}
+
+.bb-transport-kpi-card--warning .bb-transport-kpi-card__icon {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fcd34d;
+  box-shadow:
+    0 0 0 1px rgba(245, 158, 11, 0.18),
+    0 0 30px rgba(245, 158, 11, 0.2);
+}
+
+.bb-transport-kpi-card--danger .bb-transport-kpi-card__icon {
+  background: rgba(239, 68, 68, 0.18);
+  color: #fca5a5;
+  box-shadow:
+    0 0 0 1px rgba(239, 68, 68, 0.18),
+    0 0 30px rgba(239, 68, 68, 0.2);
+}
+
+.bb-transport-kpi-card--info .bb-transport-kpi-card__icon {
+  background: rgba(56, 189, 248, 0.16);
+  color: #7dd3fc;
+  box-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.18),
+    0 0 30px rgba(56, 189, 248, 0.2);
+}
+
+/* compact */
+
+.bb-transport-kpi-card--compact {
+  min-height: 132px;
+  padding: var(--bb-space-5);
+  gap: var(--bb-space-4);
+}
+
+.bb-transport-kpi-card--compact .bb-transport-kpi-card__icon {
+  width: 46px;
+  height: 46px;
+  font-size: 22px;
+}
+
+.bb-transport-kpi-card--compact .bb-transport-kpi-card__value {
+  font-size: 2rem;
+}
+
+/* responsive */
+
+@media (max-width: 640px) {
+  .bb-transport-kpi-card {
+    min-height: 132px;
+    padding: var(--bb-space-5);
+    gap: var(--bb-space-4);
+  }
+
+  .bb-transport-kpi-card__icon {
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+  }
+
+  .bb-transport-kpi-card__value {
+    font-size: 2rem;
+  }
+
+  .bb-transport-kpi-card__label {
+    font-size: 0.9rem;
+  }
+}

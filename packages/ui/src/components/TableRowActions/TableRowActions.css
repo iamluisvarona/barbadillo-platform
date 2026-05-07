@@ -1,0 +1,55 @@
+.bb-table-row-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.22rem;
+
+  width: 38px;
+  height: 38px;
+
+  padding: 0;
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 999px;
+
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--bb-color-text-secondary);
+
+  cursor: pointer;
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.bb-table-row-actions:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  border-color: rgba(167, 139, 250, 0.36);
+  background: rgba(30, 41, 59, 0.88);
+
+  box-shadow:
+    0 0 24px rgba(124, 58, 237, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.bb-table-row-actions:focus-visible {
+  outline: 2px solid rgba(167, 139, 250, 0.8);
+  outline-offset: 3px;
+}
+
+.bb-table-row-actions:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.bb-table-row-actions__dot {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 999px;
+
+  background: currentColor;
+}

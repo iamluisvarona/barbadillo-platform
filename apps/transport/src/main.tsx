@@ -5,7 +5,7 @@ import TransportApp from "./app/TransportApp";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter basename="/transport">
+    <BrowserRouter>
       <TransportApp />
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,0 +1,68 @@
+.bb-driver-inline-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  min-width: 0;
+}
+
+.bb-driver-inline-info__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.24),
+    rgba(59, 130, 246, 0.18)
+  );
+
+  border: 1px solid rgba(148, 163, 184, 0.18);
+
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.14);
+}
+
+.bb-driver-inline-info__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  min-width: 0;
+}
+
+.bb-driver-inline-info__name {
+  min-width: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: var(--bb-color-text-primary);
+
+  font-size: 0.95rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.bb-driver-inline-info__subtitle {
+  min-width: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: var(--bb-color-text-muted);
+
+  font-size: 0.82rem;
+  line-height: 1.25;
+  font-weight: 500;
+}

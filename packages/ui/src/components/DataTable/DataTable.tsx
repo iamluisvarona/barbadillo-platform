@@ -25,6 +25,7 @@ export interface DataTableProps<T> {
   selectable?: boolean;
   selectedKeys?: (string | number)[];
   onSelectionChange?: (selectedKeys: (string | number)[]) => void;
+  mobileRender?: (item: T) => ReactNode;
 }
 
 type SortDirection = "asc" | "desc" | null;
@@ -39,6 +40,7 @@ export function DataTable<T>({
   selectable = false,
   selectedKeys,
   onSelectionChange,
+  mobileRender,
 }: DataTableProps<T>) {
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<SortDirection>(null);
@@ -120,92 +122,111 @@ export function DataTable<T>({
 
   return (
     <div className="bb-data-table">
-      <div className="bb-data-table__scroll">
-        <table className="bb-data-table__table">
-          <thead>
-            <tr>
-              {selectable ? (
-                <th className="bb-data-table__cell bb-data-table__cell--selection bb-data-table__cell--head">
-                  <Checkbox
-                    checked={allSelected}
-                    onChange={toggleAll}
-                    aria-label="Seleccionar todo"
-                  />
-                </th>
-              ) : null}
+      <div className="bb-data-table__desktop">
+        <div className="bb-data-table__scroll">
+          <table className="bb-data-table__table">
+            <thead>
+              <tr>
+                {selectable ? (
+                  <th className="bb-data-table__cell bb-data-table__cell--selection bb-data-table__cell--head">
+                    <Checkbox
+                      checked={allSelected}
+                      onChange={toggleAll}
+                      aria-label="Seleccionar todo"
+                    />
+                  </th>
+                ) : null}
 
-              {columns.map((col) => (
-                <th
-                  key={col.key}
-                  style={{ width: col.width }}
-                  className={`bb-data-table__cell bb-data-table__cell--head bb-data-table__cell--${col.align ?? "left"} ${
-                    col.sortable ? "bb-data-table__cell--sortable" : ""
-                  }`}
-                  onClick={() => {
-                    if (col.sortable) {
-                      toggleSort(col.key);
-                    }
-                  }}
-                >
-                  <div className="bb-data-table__header">
-                    {col.header}
-                    {col.sortable ? (
-                      <span className="bb-data-table__sort" aria-hidden="true">
-                        {sortKey === col.key
-                          ? sortDir === "asc"
-                            ? "▲"
-                            : "▼"
-                          : "↕"}
-                      </span>
+                {columns.map((col) => (
+                  <th
+                    key={col.key}
+                    style={{ width: col.width }}
+                    className={`bb-data-table__cell bb-data-table__cell--head bb-data-table__cell--${col.align ?? "left"} ${
+                      col.sortable ? "bb-data-table__cell--sortable" : ""
+                    }`}
+                    onClick={() => {
+                      if (col.sortable) {
+                        toggleSort(col.key);
+                      }
+                    }}
+                  >
+                    <div className="bb-data-table__header">
+                      {col.header}
+                      {col.sortable ? (
+                        <span
+                          className="bb-data-table__sort"
+                          aria-hidden="true"
+                        >
+                          {sortKey === col.key
+                            ? sortDir === "asc"
+                              ? "▲"
+                              : "▼"
+                            : "↕"}
+                        </span>
+                      ) : null}
+                    </div>
+                  </th>
+                ))}
+
+                {actions ? (
+                  <th className="bb-data-table__cell bb-data-table__cell--head bb-data-table__cell--right">
+                    Acciones
+                  </th>
+                ) : null}
+              </tr>
+            </thead>
+
+            <tbody>
+              {sortedData.map((item, index) => {
+                const key = getRowKey(item, index);
+
+                return (
+                  <tr key={key} className="bb-data-table__row">
+                    {selectable ? (
+                      <td className="bb-data-table__cell bb-data-table__cell--selection">
+                        <Checkbox
+                          checked={selected.includes(key)}
+                          onChange={() => toggleRow(key)}
+                          aria-label="Seleccionar fila"
+                        />
+                      </td>
                     ) : null}
-                  </div>
-                </th>
-              ))}
 
-              {actions ? (
-                <th className="bb-data-table__cell bb-data-table__cell--head bb-data-table__cell--right">
-                  Acciones
-                </th>
-              ) : null}
-            </tr>
-          </thead>
+                    {columns.map((col) => (
+                      <td
+                        key={col.key}
+                        className={`bb-data-table__cell bb-data-table__cell--${col.align ?? "left"}`}
+                      >
+                        {col.render(item)}
+                      </td>
+                    ))}
 
-          <tbody>
-            {sortedData.map((item, index) => {
-              const key = getRowKey(item, index);
-
-              return (
-                <tr key={key} className="bb-data-table__row">
-                  {selectable ? (
-                    <td className="bb-data-table__cell bb-data-table__cell--selection">
-                      <Checkbox
-                        checked={selected.includes(key)}
-                        onChange={() => toggleRow(key)}
-                        aria-label="Seleccionar fila"
-                      />
-                    </td>
-                  ) : null}
-
-                  {columns.map((col) => (
-                    <td
-                      key={col.key}
-                      className={`bb-data-table__cell bb-data-table__cell--${col.align ?? "left"}`}
-                    >
-                      {col.render(item)}
-                    </td>
-                  ))}
-
-                  {actions ? (
-                    <td className="bb-data-table__cell bb-data-table__cell--right">
-                      {actions(item)}
-                    </td>
-                  ) : null}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                    {actions ? (
+                      <td className="bb-data-table__cell bb-data-table__cell--right">
+                        {actions(item)}
+                      </td>
+                    ) : null}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      {mobileRender ? (
+        <div className="bb-data-table__mobile">
+          {sortedData.map((item, index) => {
+            const key = getRowKey(item, index);
+
+            return (
+              <div key={key} className="bb-data-table__mobile-item">
+                {mobileRender(item)}
+              </div>
+            );
+          })}
+        </div>
+      ) : null}
     </div>
   );
 }

@@ -1,0 +1,121 @@
+.bb-dashboard-kpi-grid {
+  width: 100%;
+  min-width: 0;
+}
+
+.bb-dashboard-kpi-grid__desktop {
+  display: block;
+}
+
+.bb-dashboard-kpi-grid__mobile {
+  display: none;
+}
+
+.bb-dashboard-kpi-grid__desktop .bb-card-grid {
+  width: 100%;
+  min-width: 0;
+}
+
+.bb-dashboard-kpi-grid__desktop .bb-stat-card {
+  min-width: 0;
+  min-height: 145px;
+}
+
+.bb-dashboard-kpi-grid__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--bb-space-3);
+  align-items: center;
+
+  padding: var(--bb-space-4);
+
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: var(--bb-radius-xl);
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(124, 58, 237, 0.1),
+      transparent 34%
+    ),
+    linear-gradient(180deg, rgba(8, 18, 34, 0.96), rgba(4, 12, 24, 0.98));
+
+  box-shadow: var(--bb-shadow-card);
+}
+
+.bb-dashboard-kpi-grid__main {
+  min-width: 0;
+}
+
+.bb-dashboard-kpi-grid__label {
+  display: block;
+
+  overflow: hidden;
+
+  color: var(--bb-color-text-muted);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.3;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bb-dashboard-kpi-grid__description {
+  display: block;
+
+  overflow: hidden;
+
+  margin-top: 4px;
+
+  color: var(--bb-color-text-soft);
+
+  font-size: 0.76rem;
+  font-weight: 650;
+  line-height: 1.35;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bb-dashboard-kpi-grid__side {
+  display: flex;
+  align-items: center;
+  gap: var(--bb-space-3);
+
+  min-width: 0;
+}
+
+.bb-dashboard-kpi-grid__value {
+  color: var(--bb-color-text);
+
+  font-size: 1.45rem;
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+@media (min-width: 1201px) {
+  .bb-dashboard-kpi-grid__desktop .bb-card-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .bb-dashboard-kpi-grid__desktop .bb-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .bb-dashboard-kpi-grid__desktop {
+    display: none;
+  }
+
+  .bb-dashboard-kpi-grid__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bb-space-3);
+  }
+}

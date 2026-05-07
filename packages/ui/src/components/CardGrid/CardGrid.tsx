@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from "react";
 import "./CardGrid.css";
 
-export type CardGridColumns = 1 | 2 | 3 | 4;
+export type CardGridColumns = 1 | 2 | 3 | 4 | 5;
 export type CardGridGap = 2 | 3 | 4 | 5 | 6;
 
 export type CardGridProps = HTMLAttributes<HTMLDivElement> & {

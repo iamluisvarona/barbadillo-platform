@@ -1,6 +1,8 @@
 .bb-data-table {
   width: 100%;
+  min-width: 0;
   overflow: hidden;
+
   background: var(--bb-color-surface);
   border: 1px solid var(--bb-color-border);
   border-radius: var(--bb-radius-lg);
@@ -9,6 +11,7 @@
 
 .bb-data-table__scroll {
   width: 100%;
+  min-width: 0;
   overflow-x: auto;
 }
 
@@ -20,18 +23,24 @@
 
 .bb-data-table__cell {
   padding: var(--bb-space-3) var(--bb-space-4);
+
   color: var(--bb-color-text-soft);
+
   font-size: 0.9rem;
+  line-height: 1.35;
   white-space: nowrap;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .bb-data-table__cell--head {
   color: var(--bb-color-text-muted);
+
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+
   background: var(--bb-color-surface-strong);
 }
 
@@ -48,7 +57,7 @@
 }
 
 .bb-data-table__row {
-  transition: background 0.16s;
+  transition: background 0.16s ease;
 }
 
 .bb-data-table__row:hover {
@@ -62,8 +71,10 @@
 .bb-data-table__empty {
   width: 100%;
   padding: var(--bb-space-5);
+
   color: var(--bb-color-text-muted);
   text-align: center;
+
   background: var(--bb-color-surface);
   border: 1px dashed var(--bb-color-border);
   border-radius: var(--bb-radius-lg);
@@ -83,6 +94,165 @@
 }
 
 .bb-data-table__sort {
-  font-size: 0.7rem;
   color: var(--bb-color-text-muted);
+  font-size: 0.7rem;
+}
+
+.bb-data-table__cell--selection {
+  width: 48px;
+}
+
+.bb-data-table__cell--actions {
+  width: 96px;
+}
+
+/* Mobile card mode */
+
+@media (max-width: 760px) {
+  .bb-data-table {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .bb-data-table__scroll {
+    overflow: visible;
+  }
+
+  .bb-data-table__table {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .bb-data-table__table thead {
+    display: none;
+  }
+
+  .bb-data-table__table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bb-space-4);
+    width: 100%;
+  }
+
+  .bb-data-table__row {
+    display: grid;
+    width: 100%;
+    min-width: 0;
+
+    padding: var(--bb-space-4);
+
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: var(--bb-radius-xl);
+
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(124, 58, 237, 0.08),
+        transparent 34%
+      ),
+      rgba(15, 23, 42, 0.86);
+
+    box-shadow:
+      0 18px 48px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .bb-data-table__row:hover {
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(124, 58, 237, 0.12),
+        transparent 34%
+      ),
+      rgba(15, 23, 42, 0.92);
+  }
+
+  .bb-data-table__cell {
+    display: grid;
+    grid-template-columns: minmax(96px, 0.42fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--bb-space-3);
+
+    width: 100%;
+    min-width: 0;
+    padding: var(--bb-space-3) 0;
+
+    white-space: normal;
+    text-align: left;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .bb-data-table__cell::before {
+    content: attr(data-label);
+
+    color: var(--bb-color-text-muted);
+
+    font-size: 0.72rem;
+    line-height: 1.2;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .bb-data-table__row .bb-data-table__cell:first-child {
+    padding-top: 0;
+  }
+
+  .bb-data-table__row .bb-data-table__cell:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .bb-data-table__cell--center,
+  .bb-data-table__cell--right {
+    text-align: left;
+  }
+
+  .bb-data-table__cell--actions {
+    width: 100%;
+  }
+
+  .bb-data-table__cell--hide-mobile {
+    display: none;
+  }
+}
+
+.bb-data-table__desktop {
+  width: 100%;
+  min-width: 0;
+}
+
+.bb-data-table__mobile {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .bb-data-table__desktop {
+    display: none;
+  }
+
+  .bb-data-table__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bb-space-4);
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .bb-data-table__mobile-item {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .bb-data-table:has(.bb-data-table__mobile) {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }

@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 
 export default defineConfig({
+  base: "http://localhost:4174/",
   plugins: [
     react(),
     federation({
@@ -14,10 +15,13 @@ export default defineConfig({
       shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
-  server: {
-    port: 5174,
+  preview: {
+    port: 4174,
+    strictPort: true,
+    cors: true,
   },
   build: {
     target: "esnext",
+    modulePreload: false,
   },
 });

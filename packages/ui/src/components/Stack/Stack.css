@@ -1,5 +1,7 @@
 .bb-stack {
   display: flex;
+  gap: var(--bb-stack-gap, var(--bb-space-4));
+  min-width: 0;
 }
 
 .bb-stack--vertical {
@@ -12,6 +14,11 @@
 
 .bb-stack--full {
   width: 100%;
+}
+
+.bb-stack--full.bb-stack--vertical > * {
+  width: 100%;
+  min-width: 0;
 }
 
 /* ALIGN */
